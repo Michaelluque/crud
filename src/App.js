@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
+import Formulario from './componentes/Formulario'
 
 function App() {
+
+  const [persona,guardarPersona] = useState ([
+    
+  {
+    imagen:"https://picsum.photos/350/350",
+    nombre:"Andrea",
+    ciudad:"Arequipa",
+    testimonio:"five <zdsad sad asd asda sd asd asedsad sad asd asdas das das dsad wqerewesdfdsafsd sdf sdf dsfdsf dsf",
+    empresa:"caja"
+  }, {
+    imagen:"https://picsum.photos/350/350",
+    nombre:"Pedro",
+    ciudad:"Arequipa",
+    testimonio:"five <zdsad sad asd asda sd asd asedsad sad asd asdas das das dsad wqerewesdfdsafsd sdf sdf dsfdsf dsf",
+    empresa:"caja"
+  },
+
+]
+)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="primer">
+    <Formulario persona={persona} guardarPersona={guardarPersona}/>
     </div>
   );
 }
