@@ -1,18 +1,23 @@
-import React, { useState } from "react";
-import ListaTareas from "./ListaTareas";
+import React, { useState, useEffect } from "react";
 
 const Formulario = ({ persona,guardarPersona }) => {
+  const [person, setPerson] = useState({})
+
+  useEffect(() => {
+    console.log('persona', {...persona, ['nombre']:'value'});
+  }, [])
 
   const guardarDatos =(e)=>{
 
     const {name, value} = e.target;
-    guardarPersona({...persona, [name]:value})
+
+    person[name] = value
+    setPerson(person)
   }
 
   const enviar =(e)=>{
     e.preventDefault()
-    console.log (persona)
-
+    guardarPersona([...persona, person])
   }
   return (
     <div>
@@ -21,7 +26,6 @@ const Formulario = ({ persona,guardarPersona }) => {
         type="text"
         name="nombre"
         placeholder="Ingrese Nombre"
-        value={persona.name}
         onChange={guardarDatos}
       />
       <input
@@ -55,7 +59,6 @@ const Formulario = ({ persona,guardarPersona }) => {
 
       <button type="submit">Guardar</button>
     </form>
-    <ListaTareas persona={persona}/>
     </div>
   );
 };
