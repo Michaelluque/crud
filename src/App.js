@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import './App.css';
 import Formulario from './componentes/Formulario'
+import ListaTareas from "./componentes/ListaTareas";
 
 function App() {
 
@@ -25,7 +26,9 @@ function App() {
 
   return (
     <div className="primer">
-    <Formulario persona={persona} guardarPersona={guardarPersona}/>
+      <Formulario persona={persona} guardarPersona={guardarPersona}/>
+
+      <ListaTareas persona={persona}/>
     </div>
   );
 }
